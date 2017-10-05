@@ -1,0 +1,58 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.love'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+ext {
+	springCloudVersion = 'Dalston.SR3'
+}
+
+dependencies {
+	//compile('org.springframework.cloud:spring-cloud-starter-aws')
+	//compile('org.springframework.cloud:spring-cloud-starter-aws-jdbc')
+	//compile('org.springframework.cloud:spring-cloud-starter-aws-messaging')
+	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+	//compile('org.springframework.boot:spring-boot-starter-data-redis')
+	compile('org.springframework.boot:spring-boot-starter-jersey')
+	//compile('org.springframework.boot:spring-boot-starter-security')
+	//compile('org.springframework.session:spring-session')
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+    //compile('org.springframework.boot:spring-boot-starter-validation')
+	compile group: 'com.google.cloud', name: 'google-cloud-core', version: '1.6.0'
+	compile group: 'com.google.cloud', name: 'google-cloud-datastore', version: '1.6.0'
+	compile group: 'com.google.cloud', name: 'google-cloud', version: '0.24.0-alpha'
+	compile group: 'com.google.cloud', name: 'google-cloud-core-http', version: '1.6.0'
+	compile group: 'com.google.cloud', name: 'google-cloud-logging', version: '1.6.0'
+	compile group: 'com.google.cloud', name: 'google-cloud-compute', version: '0.24.0-alpha'
+
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.security:spring-security-test')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
