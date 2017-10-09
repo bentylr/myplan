@@ -1,19 +1,17 @@
 package com.love.model;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 /**
  * Created by bhagi on 10/2/2017.
  */
 @Data
 @Entity
+@Table(name = "User")
 public class User {
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
