@@ -2,12 +2,14 @@ package com.love.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Entity;
 
 /**
  * Created by bhagi on 10/2/2017.
  */
 @Data
+@Entity
 public class User {
     @Id
     private String userName;

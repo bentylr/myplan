@@ -1,6 +1,6 @@
 package com.love.controller;
 
-import com.love.service.UserService;
+import com.love.service.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -13,13 +13,14 @@ import java.util.Base64;
  * Created by bhagi on 10/2/2017.
  */
 @RestController
+@RequestMapping(path = "/demo")
 @AllArgsConstructor
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
-    @RequestMapping(value = "/auth/{value}", method = RequestMethod.GET)
+    @GetMapping(value = "/auth/{value}")
     public String validate(@PathVariable("value") String auth) {
         if (StringUtils.isNoneBlank(auth)) {
             String decodedAuth = new String(Base64.getDecoder().decode(auth));
