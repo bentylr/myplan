@@ -1,6 +1,5 @@
 package com.love.service;
 
-import com.love.model.User;
 import org.apache.commons.lang3.tuple.Pair;
 
 /**

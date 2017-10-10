@@ -37,6 +37,7 @@ dependencies {
 	//compile('org.springframework.boot:spring-boot-starter-data-redis')
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 	compile('org.springframework.boot:spring-boot-starter-jersey')
+	compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.210'
 	compile 'mysql:mysql-connector-java'
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	//compile('org.springframework.boot:spring-boot-starter-security')
