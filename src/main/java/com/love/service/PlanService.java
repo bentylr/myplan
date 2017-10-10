@@ -26,10 +26,10 @@ public class PlanService {
 
     public List<Plan> getPlans(String creationDateName) {
         Map<String, AttributeValue> eav = new HashMap<>();
-        eav.put(":creationDateName", new AttributeValue().withS(creationDateName));
+        eav.put(":dateName", new AttributeValue().withS(creationDateName));
 
         DynamoDBQueryExpression queryExpression = new DynamoDBQueryExpression<>()
-                .withKeyConditionExpression("creationDateName = :creationDateName")
+                .withKeyConditionExpression("dateName = :dateName")
                 .withExpressionAttributeValues(eav);
         return dynamoDBMapper.query(Plan.class, queryExpression);
     }
